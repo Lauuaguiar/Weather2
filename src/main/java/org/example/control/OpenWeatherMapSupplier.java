@@ -16,6 +16,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class OpenWeatherMapSupplier implements WeatherSupplier {
     private static String apiKey;
 
@@ -24,48 +25,49 @@ public class OpenWeatherMapSupplier implements WeatherSupplier {
     }
 
     public static String getApi(Location location) {
-        return "https://api.openweathermap.org/data/2.5/forecast?lat=" + location.getLat() +
-                "&lon=" + location.getLon() + "&appid=" + apiKey + "&units=metric";
+        return String.format("https://api.openweathermap.org/data/2.5/forecast?lat=%f&lon=%f&appid=%s&units=metric",
+                location.getLat(), location.getLon(), apiKey);
     }
 
-    public static JsonObject getJson(String api) throws IOException {
-        Document result = Jsoup.connect(api).ignoreContentType(true).get();
-        JsonParser parser = new JsonParser();
-        return parser.parse(result.text()).getAsJsonObject();
+    public static JsonObject getJson(String api) {
+        try {
+            Document result = Jsoup.connect(api).ignoreContentType(true).get();
+            return JsonParser.parseString(result.text()).getAsJsonObject();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Weather createWeather(JsonObject listItem, Instant instant, Location location) {
+        JsonObject main = listItem.getAsJsonObject("main");
+        JsonObject clouds = listItem.getAsJsonObject("clouds");
+        JsonObject wind = listItem.getAsJsonObject("wind");
+
+        float temperature = main.get("temp").getAsFloat();
+        float precipitation = listItem.get("pop").getAsFloat();
+        int cloudCoverage = clouds.get("all").getAsInt();
+        int humidity = main.get("humidity").getAsInt();
+        float windSpeed = wind.get("speed").getAsFloat();
+
+        return new Weather(instant, temperature, precipitation, windSpeed, humidity, cloudCoverage, location);
     }
 
     @Override
     public List<Weather> getWeather(Location location) {
         List<Weather> weatherList = new ArrayList<>();
-        try {
-            String apiUrl = getApi(location);
-            JsonObject jsonResult = getJson(apiUrl);
-            JsonArray list = jsonResult.getAsJsonArray("list");
+        JsonObject jsonResult = getJson(getApi(location));
+        JsonArray list = jsonResult.getAsJsonArray("list");
 
-            for (int i = 0; i < list.size(); i++) {
-                JsonObject listItem = list.get(i).getAsJsonObject();
-                long timestamp = listItem.get("dt").getAsLong();
-                Instant instant = Instant.ofEpochSecond(timestamp);
+        for (int i = 0; i < list.size(); i++) {
+            JsonObject listItem = list.get(i).getAsJsonObject();
+            long timestamp = listItem.get("dt").getAsLong();
+            Instant instant = Instant.ofEpochSecond(timestamp);
+            LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
 
-                LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-
-                if (localDateTime.getHour() == 12) {
-                    float temperature = listItem.getAsJsonObject("main").get("temp").getAsFloat();
-                    float precipitation = listItem.get("pop").getAsFloat();
-                    int clouds = listItem.getAsJsonObject("clouds").get("all").getAsInt();
-                    int humidity = listItem.getAsJsonObject("main").get("humidity").getAsInt();
-                    float windSpeed = listItem.getAsJsonObject("wind").get("speed").getAsFloat();
-                    Weather weather = new Weather(instant, temperature, precipitation, windSpeed, humidity, clouds, location);
-                    weatherList.add(weather);
-                }
+            if (localDateTime.getHour() == 12) {
+                weatherList.add(createWeather(listItem, instant, location));
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return weatherList;
-
     }
-
-
-
 }

@@ -2,6 +2,8 @@ package org.example.model;
 
 import java.time.Instant;
 
+
+
 public class Weather {
     private final Instant instant;
     private final float temperature;

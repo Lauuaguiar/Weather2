@@ -3,9 +3,45 @@ package org.example;
 import jakarta.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 public class ActiveMQSubscriber {
 
-    public void subscribeToTopic(String brokerURL) throws JMSException {
+    public BlockingQueue<String> subscribeToTopic(String brokerURL) throws JMSException {
+        BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
+
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
+        Connection connection = connectionFactory.createConnection();
+        connection.start();
+
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+        Destination destination = session.createTopic("prediction.Weather");
+
+        MessageConsumer subscriber = session.createConsumer(destination);
+
+        subscriber.setMessageListener(new MessageListener() {
+            public void onMessage(Message message) {
+                if (message instanceof TextMessage) {
+                    try {
+                        TextMessage textMessage = (TextMessage) message;
+                        String receivedMessage = textMessage.getText();
+                        System.out.println("Mensaje recibido");
+                        messageQueue.offer(receivedMessage); // Agregar el mensaje a la cola
+                    } catch (JMSException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        System.out.println("Esperando mensajes. Presiona Ctrl + C para salir.");
+        return messageQueue;
+    }
+
+    /*
+    public String subscribeToTopic(String brokerURL) throws JMSException {
         // Crear la conexión al Broker
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
         Connection connection = connectionFactory.createConnection();
@@ -22,17 +58,19 @@ public class ActiveMQSubscriber {
 
         // Implementar el listener para recibir mensajes
         subscriber.setMessageListener(new MessageListener() {
-            @Override
+
             public void onMessage(Message message) {
-                try {
-                    if (message instanceof TextMessage) {
+                if (message instanceof TextMessage) {
+                    try {
                         TextMessage textMessage = (TextMessage) message;
-                        System.out.println("Mensaje recibido: " + textMessage.getText());
+                        String receivedMessage = textMessage.getText();
+                        System.out.println("Mensaje recibido: " + receivedMessage);
+                    } catch (JMSException e) {
+                        e.printStackTrace();
                     }
-                } catch (JMSException e) {
-                    e.printStackTrace();
                 }
             }
+
         });
 
         // Mantener el programa en ejecución
@@ -41,4 +79,7 @@ public class ActiveMQSubscriber {
             // Mantener la aplicación esperando mensajes
         }
     }
+
+     */
+
 }

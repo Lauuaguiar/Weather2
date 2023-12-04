@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Deletion of the SqliteWeatherStore class and its interface as they are unnecessary for this delivery.">
-      <change afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/ActiveMQSubscriber.java" afterDir="false" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives.">
+      <change afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/EventProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/ActiveMQSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/ActiveMQSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701717281225</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives.">
+      <option name="closed" value="true" />
+      <created>1701719521752</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701719521752</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +207,7 @@
     <MESSAGE value="Creation of the 'WeatherDataPublisher' class and the 'Publisher' interface to generate the event in JSON format and send the event to the broker. Also, creation of the 'InstantAdapter' class to prevent errors when processing data of type 'Instant' in JSON" />
     <MESSAGE value="Creation of the Prediction Provider module and addition of the code to it. Creation of the Event Store Builder module" />
     <MESSAGE value="Deletion of the SqliteWeatherStore class and its interface as they are unnecessary for this delivery." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deletion of the SqliteWeatherStore class and its interface as they are unnecessary for this delivery." />
+    <MESSAGE value="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives." />
   </component>
 </project>

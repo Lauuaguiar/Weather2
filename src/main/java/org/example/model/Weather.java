@@ -5,7 +5,11 @@ import java.time.Instant;
 
 
 public class Weather {
+
+    private final Instant ts;
+    private final String ss;
     private final Instant instant;
+
     private final float temperature;
     private final float precipitation;
     private final float wind;
@@ -14,15 +18,17 @@ public class Weather {
 
     Location location;
 
-    public Weather(Instant instant, float temperature, float precipitation, float wind, int humidity, int clouds, Location location) {
+    public Weather(Instant ts, String ss, Instant instant, float temperature, float precipitation, float wind, int humidity, int clouds, Location location) {
+        this.ts = ts;
+        this.ss = ss;
         this.instant = instant;
         this.temperature = temperature;
         this.precipitation = precipitation;
         this.wind = wind;
         this.humidity = humidity;
         this.clouds = clouds;
-        this.location = location;
     }
+
 
     public Instant getInstant() {
         return instant;

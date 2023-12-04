@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Correction of method length.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Addition of the dependency 'org.apache.activemq:activemq-client:6.0.0.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase.db" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/control/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/control/OpenWeatherMapSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherEventSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -102,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701111164346</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Addition of the dependency 'org.apache.activemq:activemq-client:6.0.0.">
+      <option name="closed" value="true" />
+      <created>1701710392329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701710392329</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +122,7 @@
     <MESSAGE value="Correction of Weather attributes, WeatherStore poisoning, path to the locations.csv file, and method names." />
     <MESSAGE value="Push to GitHub" />
     <MESSAGE value="Correction of method length." />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction of method length." />
+    <MESSAGE value="Addition of the dependency 'org.apache.activemq:activemq-client:6.0.0." />
+    <option name="LAST_COMMIT_MESSAGE" value="Addition of the dependency 'org.apache.activemq:activemq-client:6.0.0." />
   </component>
 </project>

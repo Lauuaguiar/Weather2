@@ -38,7 +38,7 @@ public class OpenWeatherMapSupplier implements WeatherSupplier {
         }
     }
 
-    private Weather createWeather(JsonObject listItem, Instant instant, Location location) {
+    private Weather createWeather(JsonObject listItem, Instant ts, Location location) {
         JsonObject main = listItem.getAsJsonObject("main");
         JsonObject clouds = listItem.getAsJsonObject("clouds");
         JsonObject wind = listItem.getAsJsonObject("wind");
@@ -49,7 +49,10 @@ public class OpenWeatherMapSupplier implements WeatherSupplier {
         int humidity = main.get("humidity").getAsInt();
         float windSpeed = wind.get("speed").getAsFloat();
 
-        return new Weather(instant, temperature, precipitation, windSpeed, humidity, cloudCoverage, location);
+        String ss = "prediction-provider"; // Otra fuente que produce el dato (puedes ajustar este valor según tu lógica)
+        Instant predictionTime = Instant.now(); // Obtener el tiempo de predicción actual en UTC
+
+        return new Weather(ts, ss, predictionTime, temperature, precipitation, windSpeed, humidity, cloudCoverage, location);
     }
 
     @Override

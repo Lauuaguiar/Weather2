@@ -8,53 +8,64 @@ import org.example.model.Weather;
 
 import java.time.Instant;
 
-
 public class WeatherDataPublisher implements Publisher {
-    // Método para obtener datos de OpenWeatherMap y enviar al broker
     public void publishWeatherData(Weather weather) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Instant.class, new InstantAdapter());
-        Gson gson = gsonBuilder.create();
-
-        String jsonData = gson.toJson(weather);
-
-        // Publish the message to the broker
+        String jsonData = convertWeatherToJson(weather);
         sendMessageToBroker(jsonData);
         System.out.println("Message sent to the Broker");
     }
 
+    private String convertWeatherToJson(Weather weather) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Instant.class, new InstantAdapter());
+        Gson gson = gsonBuilder.create();
+        return gson.toJson(weather);
+    }
+
     private void sendMessageToBroker(String jsonData) {
         try {
-            // Establish connection with the broker (ActiveMQ)
-            ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
-            Connection connection = connectionFactory.createConnection();
-            connection.start();
+            Connection connection = establishConnectionWithBroker();
             System.out.println("Connection established");
-
-            // Create a session
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            System.out.println("Session created");
-
-            // Create a producer for the topic 'prediction.Weather'
-            Destination destination = session.createTopic("prediction.Weather");
-            MessageProducer producer = session.createProducer(destination);
-            System.out.println("Producer created");
-
-            // Create a message with JSON data
-            TextMessage message = session.createTextMessage(jsonData);
-            System.out.println("JSON Message created");
-
-            // Send the message to the broker's topic
-            producer.send(message);
+            Session session = createSession(connection);
+            MessageProducer producer = createProducerForTopic(session);
+            TextMessage message = createTextMessage(session, jsonData);
+            sendMessage(producer, message);
             System.out.println("Message sent to the topic");
+            closeConnections(producer, session, connection);
 
-            // Close connections
-            producer.close();
-            session.close();
-            connection.close();
-            System.out.println("Connection closed");
         } catch (JMSException e) {
             e.printStackTrace();
         }
     }
+
+    private Connection establishConnectionWithBroker() throws JMSException {
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+        Connection connection = connectionFactory.createConnection();
+        connection.start();
+        return connection;
+    }
+
+    private Session createSession(Connection connection) throws JMSException {
+        return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+    }
+
+    private MessageProducer createProducerForTopic(Session session) throws JMSException {
+        Destination destination = session.createTopic("prediction.Weather");
+        return session.createProducer(destination);
+    }
+
+    private TextMessage createTextMessage(Session session, String jsonData) throws JMSException {
+        return session.createTextMessage(jsonData);
+    }
+
+    private void sendMessage(MessageProducer producer, TextMessage message) throws JMSException {
+        producer.send(message);
+    }
+
+    private void closeConnections(MessageProducer producer, Session session, Connection connection) throws JMSException {
+        producer.close();
+        session.close();
+        connection.close();
+    }
 }
+

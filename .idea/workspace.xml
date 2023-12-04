@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives.">
-      <change afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/EventProcessor.java" afterDir="false" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/ActiveMQSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/ActiveMQSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Suscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/model/ActiveMQTopicSubscriber.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,14 +18,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -59,6 +62,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Prediction provider" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.example.model" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -83,12 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="org.example.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="EventStoreBuilder" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -184,7 +190,55 @@
       <option name="project" value="LOCAL" />
       <updated>1701719521752</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Creation of the EventProcessor class to process the data into a file.">
+      <option name="closed" value="true" />
+      <created>1701721567797</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701721567797</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Creation of the EventSerializer class to serialize and save events into .json files.">
+      <option name="closed" value="true" />
+      <created>1701730517557</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701730517557</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Creation of the EventSerializer class to serialize and save events into .json files.">
+      <option name="closed" value="true" />
+      <created>1701735364452</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701735364452</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Bug fixes, improved readability and code efficiency">
+      <option name="closed" value="true" />
+      <created>1701735391130</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701735391130</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Bug fixes, improved readability and code efficiency">
+      <option name="closed" value="true" />
+      <created>1701797661330</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701797661330</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages.">
+      <option name="closed" value="true" />
+      <created>1701875296143</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701875296143</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +262,12 @@
     <MESSAGE value="Creation of the Prediction Provider module and addition of the code to it. Creation of the Event Store Builder module" />
     <MESSAGE value="Deletion of the SqliteWeatherStore class and its interface as they are unnecessary for this delivery." />
     <MESSAGE value="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of the ActiveMQSubscriber class to subscribe to the topic and extract the messages it receives." />
+    <MESSAGE value="Creation of the EventProcessor class to process the data into a file." />
+    <MESSAGE value="bug fixes, improved readability and code efficiency" />
+    <MESSAGE value="Creation of the EventSerializer class to serialize and save events into .json files." />
+    <MESSAGE value="division of the Event Store Builder module into the model and control packages." />
+    <MESSAGE value="Bug fixes, improved readability and code efficiency" />
+    <MESSAGE value="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages." />
   </component>
 </project>

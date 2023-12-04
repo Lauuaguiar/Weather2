@@ -16,7 +16,7 @@ public class Weather {
     private final int humidity;
     private final int clouds;
 
-    Location location;
+    private final Location location;
 
     public Weather(Instant ts, String ss, Instant instant, float temperature, float precipitation, float wind, int humidity, int clouds, Location location) {
         this.ts = ts;
@@ -27,34 +27,6 @@ public class Weather {
         this.wind = wind;
         this.humidity = humidity;
         this.clouds = clouds;
-    }
-
-
-    public Instant getInstant() {
-        return instant;
-    }
-
-    public float getTemperature() {
-        return temperature;
-    }
-
-    public float getPrecipitation() {
-        return precipitation;
-    }
-
-    public float getWind() {
-        return wind;
-    }
-
-    public int getHumidity() {
-        return humidity;
-    }
-
-    public int getClouds() {
-        return clouds;
-    }
-
-    public Location getLocation() {
-        return location;
+        this.location = location;
     }
 }

@@ -10,12 +10,10 @@ import java.util.List;
 
 public class WeatherController {
     private OpenWeatherMapSupplier openWeatherMapSupplier;
-    private SqliteWeatherStore sqliteWeatherStore;
     private WeatherDataPublisher weatherDataPublisher;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, SqliteWeatherStore sqliteWeatherStore, WeatherDataPublisher weatherDataPublisher) {
+    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, WeatherDataPublisher weatherDataPublisher) {
         this.openWeatherMapSupplier = openWeatherMapSupplier;
-        this.sqliteWeatherStore = sqliteWeatherStore;
         this.weatherDataPublisher = weatherDataPublisher;
     }
 
@@ -45,9 +43,6 @@ public class WeatherController {
             try {
                 openWeatherMapSupplier.getWeather(location)
                         .forEach(weather -> weatherDataPublisher.publishWeatherData(weather));
-
-                openWeatherMapSupplier.getWeather(location)
-                        .forEach(weather -> sqliteWeatherStore.save(weather, location, weather.getInstant()));
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

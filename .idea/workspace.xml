@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Creation of the 'WeatherDataPublisher' class and the 'Publisher' interface to generate the event in JSON format and send the event to the broker. Also, creation of the 'InstantAdapter' class to prevent errors when processing data of type 'Instant' in JSON">
-      <change afterPath="$PROJECT_DIR$/Prediction Provider/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prediction Provider/src/main/resources/locations.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prediction Provider/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase.db" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/InstantAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/InstantAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/OpenWeatherMapSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/SqliteWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherDataPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherDataPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/control/WeatherSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/locations.csv" beforeDir="false" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Creation of the Prediction Provider module and addition of the code to it. Creation of the Event Store Builder module">
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/SqliteWeatherStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherStore.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701715689860</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Creation of the Prediction Provider module and addition of the code to it. Creation of the Event Store Builder module">
+      <option name="closed" value="true" />
+      <created>1701717104710</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701717104710</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +175,7 @@
     <MESSAGE value="Addition of the dependency 'org.apache.activemq:activemq-client:6.0.0." />
     <MESSAGE value="Addition of the attributes 'ss' and 'predictionTime' to the Weather class." />
     <MESSAGE value="Creation of the 'WeatherDataPublisher' class and the 'Publisher' interface to generate the event in JSON format and send the event to the broker. Also, creation of the 'InstantAdapter' class to prevent errors when processing data of type 'Instant' in JSON" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of the 'WeatherDataPublisher' class and the 'Publisher' interface to generate the event in JSON format and send the event to the broker. Also, creation of the 'InstantAdapter' class to prevent errors when processing data of type 'Instant' in JSON" />
+    <MESSAGE value="Creation of the Prediction Provider module and addition of the code to it. Creation of the Event Store Builder module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of the Prediction Provider module and addition of the code to it. Creation of the Event Store Builder module" />
   </component>
 </project>

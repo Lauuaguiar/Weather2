@@ -11,10 +11,12 @@ import java.util.List;
 public class WeatherController {
     private OpenWeatherMapSupplier openWeatherMapSupplier;
     private SqliteWeatherStore sqliteWeatherStore;
+    private WeatherDataPublisher weatherDataPublisher;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, SqliteWeatherStore sqliteWeatherStore) {
+    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, SqliteWeatherStore sqliteWeatherStore, WeatherDataPublisher weatherDataPublisher) {
         this.openWeatherMapSupplier = openWeatherMapSupplier;
         this.sqliteWeatherStore = sqliteWeatherStore;
+        this.weatherDataPublisher = weatherDataPublisher;
     }
 
     private List<Location> readCSV(String csvFilePath) {
@@ -41,6 +43,9 @@ public class WeatherController {
     private void processWeatherData(List<Location> listLocation) {
         listLocation.forEach(location -> {
             try {
+                openWeatherMapSupplier.getWeather(location)
+                        .forEach(weather -> weatherDataPublisher.publishWeatherData(weather));
+
                 openWeatherMapSupplier.getWeather(location)
                         .forEach(weather -> sqliteWeatherStore.save(weather, location, weather.getInstant()));
             } catch (Exception ex) {

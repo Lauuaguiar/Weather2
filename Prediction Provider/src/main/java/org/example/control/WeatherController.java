@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherController {
-    private OpenWeatherMapSupplier openWeatherMapSupplier;
-    private WeatherDataPublisher weatherDataPublisher;
+    private final OpenWeatherMapSupplier openWeatherMapSupplier;
+    private final WeatherDataPublisher weatherDataPublisher;
 
     public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, WeatherDataPublisher weatherDataPublisher) {
         this.openWeatherMapSupplier = openWeatherMapSupplier;
@@ -42,7 +42,7 @@ public class WeatherController {
         listLocation.forEach(location -> {
             try {
                 openWeatherMapSupplier.getWeather(location)
-                        .forEach(weather -> weatherDataPublisher.publishWeatherData(weather));
+                        .forEach(weatherDataPublisher::publishWeatherData);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

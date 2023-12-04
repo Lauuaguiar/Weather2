@@ -21,7 +21,7 @@ public class OpenWeatherMapSupplier implements WeatherSupplier {
     private static String apiKey;
 
     public OpenWeatherMapSupplier(String apiKey) {
-        this.apiKey = apiKey;
+        OpenWeatherMapSupplier.apiKey = apiKey;
     }
 
     public static String getApi(Location location) {
@@ -49,7 +49,7 @@ public class OpenWeatherMapSupplier implements WeatherSupplier {
         int humidity = main.get("humidity").getAsInt();
         float windSpeed = wind.get("speed").getAsFloat();
 
-        String ss = "prediction-provider"; // Otra fuente que produce el dato (puedes ajustar este valor según tu lógica)
+        String ss = "Open Weather Map"; // Otra fuente que produce el dato (puedes ajustar este valor según tu lógica)
         Instant predictionTime = Instant.now(); // Obtener el tiempo de predicción actual en UTC
 
         return new Weather(ts, ss, predictionTime, temperature, precipitation, windSpeed, humidity, cloudCoverage, location);

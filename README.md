@@ -52,7 +52,9 @@ The video demonstrates retrieving the ApiKey and accessing the class that utiliz
   - Where 'YYYYMMDD' corresponds to the year, month, and day obtained from the event's timestamp. The '.events' is the file extension where the events associated with a specific day are stored.
 
 ## Class Diagram and Design
-Include a class diagram detailing the relationships and structure of each module and its interaction with the broker.
+![EventStoreBuilder](https://github.com/Lauuaguiar/Weather2/assets/145450311/2ea95e5f-d26f-400a-8f0c-4e1d47de3a42)
+
+
 
 ## Project Dependencies
 - **jsoup - Version 1.16.2:**

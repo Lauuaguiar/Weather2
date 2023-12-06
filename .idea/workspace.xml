@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages.">
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Final touches and removal of zombie code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/FileEventStoreBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/FileEventStoreBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/EventStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Suscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/model/ActiveMQTopicSubscriber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/TopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +29,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -238,7 +247,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701875296143</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Final touches and removal of zombie code.">
+      <option name="closed" value="true" />
+      <created>1701898727590</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701898727590</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Final touches and removal of zombie code.">
+      <option name="closed" value="true" />
+      <created>1701901863835</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701901863835</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +293,7 @@
     <MESSAGE value="division of the Event Store Builder module into the model and control packages." />
     <MESSAGE value="Bug fixes, improved readability and code efficiency" />
     <MESSAGE value="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages." />
+    <MESSAGE value="Final touches and removal of zombie code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final touches and removal of zombie code." />
   </component>
 </project>

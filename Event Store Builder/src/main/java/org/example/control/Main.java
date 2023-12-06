@@ -7,11 +7,11 @@ public class Main {
     public static void main(String[] args) {
         String brokerURL = "tcp://localhost:61616";
 
-        Subscriber activeMQTopicSubscriber = new ActiveMQTopicSubscriber();
+        TopicSubscriber activeMQTopicSubscriber = new ActiveMQTopicSubscriber();
         try {
             BlockingQueue<String> eventsQueue = activeMQTopicSubscriber.subscribeToTopic(brokerURL);
 
-            Listener fileEventStoreBroker = new FileEventStoreBroker();
+            EventStore fileEventStoreBroker = new FileEventStoreBroker();
 
             while (true) {
                 String eventInfo = eventsQueue.take();

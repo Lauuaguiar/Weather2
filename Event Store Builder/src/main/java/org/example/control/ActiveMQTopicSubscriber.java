@@ -7,7 +7,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class ActiveMQTopicSubscriber implements Subscriber {
+public class ActiveMQTopicSubscriber implements TopicSubscriber {
     @Override
     public BlockingQueue<String> subscribeToTopic(String brokerURL) throws JMSException {
         BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();

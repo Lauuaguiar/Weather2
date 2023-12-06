@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FileEventStoreBroker implements Listener {
+public class FileEventStoreBroker implements EventStore {
 
     public void processEvent(String eventData) {
         try {

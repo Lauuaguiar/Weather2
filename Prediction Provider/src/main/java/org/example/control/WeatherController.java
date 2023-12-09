@@ -10,11 +10,11 @@ import java.util.List;
 
 public class WeatherController {
     private final OpenWeatherMapSupplier openWeatherMapSupplier;
-    private final WeatherDataPublisher weatherDataPublisher;
+    private final JsonWeatherPublisher jsonWeatherPublisher;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, WeatherDataPublisher weatherDataPublisher) {
+    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, JsonWeatherPublisher jsonWeatherPublisher) {
         this.openWeatherMapSupplier = openWeatherMapSupplier;
-        this.weatherDataPublisher = weatherDataPublisher;
+        this.jsonWeatherPublisher = jsonWeatherPublisher;
     }
 
     private List<Location> readCSV(String csvFilePath) {
@@ -42,7 +42,7 @@ public class WeatherController {
         listLocation.forEach(location -> {
             try {
                 openWeatherMapSupplier.getWeather(location)
-                        .forEach(weatherDataPublisher::publishWeatherData);
+                        .forEach(jsonWeatherPublisher::publishWeatherData);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

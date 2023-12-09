@@ -8,7 +8,7 @@ import org.example.model.Weather;
 
 import java.time.Instant;
 
-public class WeatherDataPublisher implements Publisher {
+public class JsonWeatherPublisher implements WeatherPublisher {
     public void publishWeatherData(Weather weather) {
         String jsonData = convertWeatherToJson(weather);
         sendMessageToBroker(jsonData);

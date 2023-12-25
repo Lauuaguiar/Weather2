@@ -18,8 +18,8 @@ public class Weather {
 
     private final Location location;
 
-    public Weather(Instant ts, String ss, Instant predictionTime, float temperature, float precipitation, float wind, int humidity, int clouds, Location location) {
-        this.ts = ts;
+    public Weather(String ss, Instant predictionTime, float temperature, float precipitation, float wind, int humidity, int clouds, Location location) {
+        this.ts = Instant.now();
         this.ss = ss;
         this.predictionTime = predictionTime;
         this.temperature = temperature;

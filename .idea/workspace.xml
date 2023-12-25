@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Finished">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/EventStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/EventStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/FileEventStoreBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/FileEventStoreBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/TopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/TopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/JsonWeatherPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/JmsWeatherPublisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/OpenWeatherMapSupplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherDataPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/JsonWeatherPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +62,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "C:/Users/laura/Downloads/WeatherApp Entrega 2/Prediction Provider/src/main/java",
+    "last_opened_file_path": "C:/Users/laura/Downloads/WeatherApp Entrega 2",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -74,10 +80,38 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="Main 2" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
+      <module name="EventStoreBuilder" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;tcp://localhost:61616&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
-      <module name="WeatherApp" />
+      <module name="PredictionProvider" />
       <option name="PROGRAM_PARAMETERS" value="922b4a905fc632f7cba80f8bd5b7f3d8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
+      <module name="PredictionProvider" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;Prediction Provider\\src\\main\\resources\\locations.csv&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,10 +143,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main 2" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main 2" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.org.example.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +314,47 @@
       <option name="project" value="LOCAL" />
       <updated>1702129039174</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1702217318007</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702217318007</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1702239186476</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1702239186476</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1702239197449</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1702239197449</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Finished">
+      <option name="closed" value="true" />
+      <created>1702239326064</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1702239326064</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1702239460735</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1702239460735</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,7 +362,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -300,8 +397,8 @@
     <MESSAGE value="Bug fixes, improved readability and code efficiency" />
     <MESSAGE value="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages." />
     <MESSAGE value="Final touches and removal of zombie code." />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="Finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
   </component>
 </project>

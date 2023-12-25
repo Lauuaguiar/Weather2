@@ -12,55 +12,39 @@ import java.util.Date;
 
 public class FileEventStoreBroker implements EventStore {
 
-    public void processEvent(String eventData) {
+    private final File directory;
+
+    public FileEventStoreBroker(File directory) {
+        this.directory = directory;
+    }
+
+    public void save(String event, String topic) {
         try {
-            JsonObject eventJson = JsonParser.parseString(eventData).getAsJsonObject();
+            JsonObject eventJson = JsonParser.parseString(event).getAsJsonObject();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+            String currentDate = dateFormat.format(new Date());
+            File eventFile = new File(createDirectory(topic, eventJson.get("ss").getAsString()), currentDate + ".events");
+            writeEventToFile(eventFile, event);
 
-            String eventFilePath = createDirectory(eventJson.get("ss").getAsString()) + "/event_" + System.currentTimeMillis() + ".events";
-            File eventFile = new File(eventFilePath);
-
-            writeEventToFile(eventFile, extractIsland(eventJson), eventData);
-
-            System.out.println("Evento almacenado en: " + eventFilePath);
+            System.out.println("Evento almacenado en: " + eventFile.getAbsolutePath());
         } catch (Exception e) {
             System.err.println("Error al procesar el evento: " + e.getMessage());
         }
     }
 
-    public String extractIsland(JsonObject eventJson) {
-        JsonObject location = eventJson.getAsJsonObject("location");
-        return location.get("island").getAsString();
-    }
-
-    public void writeEventToFile(File eventFile, String island, String eventData) {
-        JsonObject eventJson = JsonParser.parseString(eventData).getAsJsonObject();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(eventFile))) {
-            writer.write("Island: " + island + "\n");
-            writer.write("Time Stamp: " + eventJson.get("ts").getAsString() + "\n");
-            writer.write("Prediction Time: " + eventJson.get("ss").getAsString() + "\n");
-            writer.write("Temperature: " + eventJson.get("temperature").getAsDouble() + "\n");
-            writer.write("Humidity: " + eventJson.get("humidity").getAsInt() + "\n");
-            writer.write("Clouds: " + eventJson.get("clouds").getAsInt() + "\n");
-            writer.write("Wind: " + eventJson.get("wind").getAsDouble() + "\n");
-            writer.write("Precipitation: " + eventJson.get("precipitation").getAsDouble() + "\n");
+    private void writeEventToFile(File eventFile, String eventData) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(eventFile, true))) {
+            writer.write(eventData + "\n"); // Agregar el evento y un salto de línea para separarlos
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String createDirectory(String ss) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-        String currentDate = dateFormat.format(new Date());
-
-        String directoryPath = "eventstore/prediction.Weather/" + ss + "/" + currentDate + ".events";
+    private File createDirectory(String topic, String ss) {
+        String directoryPath = "eventstore/" + topic + "/" + ss;
         File directory = new File(directoryPath);
-
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-
-
-        return directoryPath;
+        if (!directory.exists()) directory.mkdirs();
+        return directory;
     }
 }
 

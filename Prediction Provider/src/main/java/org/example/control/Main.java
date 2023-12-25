@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             String locations = "Prediction Provider\\src\\main\\resources\\locations.csv";
-            WeatherController weatherController = new WeatherController(new OpenWeatherMapSupplier(args[0]), new JsonWeatherPublisher());
+            WeatherController weatherController = new WeatherController(new OpenWeatherMapSupplier(args[0]), new JmsWeatherPublisher());
 
             Timer timer = new Timer();
             long period = 6 * 60 * 60 * 1000;

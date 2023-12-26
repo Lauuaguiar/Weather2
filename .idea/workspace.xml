@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Error correction" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +69,7 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main 2" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
-      <module name="EventStoreBuilder" />
+      <module name="DatalakeBuilder" />
       <option name="PROGRAM_PARAMETERS" value="&quot;tcp://localhost:61616&quot;" />
       <extension name="coverage">
         <pattern>
@@ -356,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702239460735</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Error correction">
+      <option name="closed" value="true" />
+      <created>1703603471509</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703603471509</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,6 +407,7 @@
     <MESSAGE value="Final touches and removal of zombie code." />
     <MESSAGE value="Finished" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="Error correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error correction" />
   </component>
 </project>

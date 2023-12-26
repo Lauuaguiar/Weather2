@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/EventStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/EventStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/FileEventStoreBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/FileEventStoreBroker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/TopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Event Store Builder/src/main/java/org/example/control/TopicSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/JsonWeatherPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/JmsWeatherPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/OpenWeatherMapSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +23,7 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,21 +42,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "C:/Users/laura/Downloads/WeatherApp Entrega 2",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/Downloads/WeatherApp Entrega 2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Prediction Provider\src\main\java" />
@@ -144,6 +133,19 @@
       </method>
     </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="NewsProvider" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="NewsProvider" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

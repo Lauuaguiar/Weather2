@@ -48,9 +48,7 @@ public class OpenWeatherMapSupplier implements WeatherSupplier {
         int cloudCoverage = clouds.get("all").getAsInt();
         int humidity = main.get("humidity").getAsInt();
         float windSpeed = wind.get("speed").getAsFloat();
-
-        String ss = "prediction-provider"; // Otra fuente que produce el dato (puedes ajustar este valor según tu lógica)
-
+        String ss = "prediction-provider";
         return new Weather( ss, predictionTs, temperature, precipitation, windSpeed, humidity, cloudCoverage, location);
     }
 

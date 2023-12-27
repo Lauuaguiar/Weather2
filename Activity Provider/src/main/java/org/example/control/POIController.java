@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherController {
-    private final OpenWeatherMapSupplier openWeatherMapSupplier;
-    private final JmsWeatherPublisher JmsWeatherPublisher;
+public class POIController {
+    private final OpenTripMapSupplier openTripMapSupplier;
+    private final JmsPOIPublisher jmsPOIPublisher;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, JmsWeatherPublisher JmsWeatherPublisher) {
-        this.openWeatherMapSupplier = openWeatherMapSupplier;
-        this.JmsWeatherPublisher = JmsWeatherPublisher;
+    public POIController(OpenTripMapSupplier openTripMapSupplier, JmsPOIPublisher jmsPOIPublisher) {
+        this.openTripMapSupplier = openTripMapSupplier;
+        this.jmsPOIPublisher = jmsPOIPublisher;
     }
 
     private List<Location> readCSV(String csvFilePath) {
@@ -38,24 +38,24 @@ public class WeatherController {
         }
     }
 
-    private void processWeather(List<Location> listLocation) {
+    private void processPOI(List<Location> listLocation) {
         listLocation.forEach(location -> {
             try {
-                openWeatherMapSupplier.getWeather(location)
-                        .forEach(JmsWeatherPublisher::publishWeather);
+                openTripMapSupplier.getPOIs(location)
+                        .forEach(jmsPOIPublisher::publishPOI);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
 
-    public void weather(String csvFile) {
+    public void POI(String csvFile) {
         try {
             List<Location> listLocation = readCSV(csvFile);
-            processWeather(listLocation);
+            processPOI(listLocation);
             System.out.println("The task is finished");
         } catch (RuntimeException e) {
-            throw new RuntimeException("Error al procesar datos meteorológicos: " + e.getMessage(), e);
+            throw new RuntimeException("Error al procesar datos: " + e.getMessage(), e);
         }
     }
 }

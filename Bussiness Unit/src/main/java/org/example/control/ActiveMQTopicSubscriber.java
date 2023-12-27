@@ -3,6 +3,7 @@ package org.example.control;
 import jakarta.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActiveMQTopicSubscriber implements TopicSubscriber {
@@ -16,38 +17,45 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-
-    @Override
-    public void subscribe(List<String> topics, EventStore eventStore) {
+    public List<Message> subscribe(List<String> topics) {
+        List<Message> receivedMessages = new ArrayList<>();
         try {
+            System.out.println("Subscribed to topics: " + topics);
+            System.out.println("Waiting for messages...");
+
             for (String topic : topics) {
                 MessageConsumer subscriber = createSubscriber(topic);
+
                 subscriber.setMessageListener(message -> {
                     if (message instanceof TextMessage) {
-                        try {
-                            eventStore.save(((TextMessage) message).getText(), topic);
-                        } catch (JMSException e) {
-                            System.err.println(e.getMessage());
-                        }
+                        receivedMessages.add(message);
                     }
                 });
-                System.out.println("Subscribed to topic: " + topic);
             }
-            System.out.println("Esperando mensajes...");
-        } catch (JMSException e) {
-            throw new RuntimeException(e);
+
+            // Espera por un tiempo razonable para recibir mensajes
+            Thread.sleep(30000); // Ajusta este tiempo según sea necesario
+
+        } catch (InterruptedException | JMSException e) {
+            System.err.println("Error en la suscripción: " + e.getMessage());
         }
+
+        return receivedMessages;
+    }
+
+    public void close() {
+        // Cerrar conexiones y suscriptores aquí si es necesario
     }
 
     private Connection createConnection(String brokerURL) throws JMSException {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
         Connection connection = connectionFactory.createConnection();
-        connection.setClientID("DatalakeBuilder");
+        connection.setClientID("Business-unit");
         connection.start();
         return connection;
     }
 
-    private MessageConsumer createSubscriber(String topics) throws JMSException {
-        return session.createConsumer(session.createTopic(topics));
+    private MessageConsumer createSubscriber(String topic) throws JMSException {
+        return session.createConsumer(session.createTopic(topic));
     }
 }

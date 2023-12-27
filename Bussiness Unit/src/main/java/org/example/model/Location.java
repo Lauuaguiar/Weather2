@@ -1,5 +1,4 @@
 package org.example.model;
-
 public class Location {
     private final double lat;
     private final double lon;
@@ -19,4 +18,18 @@ public class Location {
     public double getLon() {
         return lon;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "lat=" + lat +
+                ", lon=" + lon +
+                ", city='" + city + '\'' +
+                '}';
+    }
+
 }

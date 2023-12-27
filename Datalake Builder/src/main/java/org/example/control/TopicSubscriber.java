@@ -1,9 +1,10 @@
 package org.example.control;
 
 import jakarta.jms.JMSException;
+import org.example.control.EventStore;
 
-import java.util.concurrent.BlockingQueue;
+import java.util.List;
 
 public interface TopicSubscriber {
-    void subscribe(String topic, EventStore eventStore) throws JMSException;
+    public void subscribe(List<String> topics, EventStore eventStore) throws JMSException;
 }

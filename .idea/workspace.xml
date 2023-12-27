@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Error correction" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Renaming of the 'Event Store Builder' module to 'DataLake Builder'.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/OpenTripMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/OpenTripMapSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/FileEventStoreBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/FileEventStoreBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/points.Of.Interest/activity-provider/20231227.events" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Weather/prediction-provider/20231227.events" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Interface" />
       </list>
@@ -46,31 +57,46 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/Downloads/WeatherApp Entrega 2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/OneDrive/Escritorio/WeatherApp Entrega 2&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.control" />
+      <recent name="org.example.model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Activity Provider" />
       <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Prediction Provider\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Prediction provider" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.example.control" />
+      <recent name="" />
       <recent name="org.example.model" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.control" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main 2" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.Main Prediction">
+    <configuration name="Main Activity" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
-      <module name="DatalakeBuilder" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;tcp://localhost:61616&quot;" />
+      <module name="ActivityProvider" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;5ae2e3f221c38a28845f05b678ba8b3dc1f148540bd1764fa20d7279&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.control.*" />
@@ -81,7 +107,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main Datalake" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
+      <module name="DatalakeBuilder" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\laura\Downloads\WeatherApp Entrega 3&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main Prediction" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="PredictionProvider" />
       <option name="PROGRAM_PARAMETERS" value="922b4a905fc632f7cba80f8bd5b7f3d8" />
@@ -130,11 +170,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="NewsProvider" />
       <method v="2">
@@ -149,15 +184,16 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main 2" />
+      <item itemvalue="Application.Main Prediction" />
+      <item itemvalue="Application.Main Activity" />
+      <item itemvalue="Application.Main Datalake" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main 2" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main Activity" />
+        <item itemvalue="Application.Main Datalake" />
+        <item itemvalue="Application.Main Prediction" />
+        <item itemvalue="Application.Main Prediction" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703603471509</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Renaming of the 'Event Store Builder' module to 'DataLake Builder'.">
+      <option name="closed" value="true" />
+      <created>1703604572283</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703604572283</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,6 +452,7 @@
     <MESSAGE value="Finished" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="Error correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error correction" />
+    <MESSAGE value="Renaming of the 'Event Store Builder' module to 'DataLake Builder'." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renaming of the 'Event Store Builder' module to 'DataLake Builder'." />
   </component>
 </project>

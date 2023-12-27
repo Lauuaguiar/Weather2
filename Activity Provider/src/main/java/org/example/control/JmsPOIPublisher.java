@@ -4,21 +4,20 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jakarta.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.example.model.Weather;
+import org.example.model.POI;
 
-import java.time.Instant;
 
-public class JmsWeatherPublisher implements WeatherPublisher {
-    public void publishWeather(Weather weather) {
-        String jsonData = convertWeatherToJson(weather);
+public class JmsPOIPublisher implements POIPublisher {
+
+    public void publishPOI(POI poi) {
+        String jsonData = convertPOIToJson(poi);
         sendMessageToBroker(jsonData);
     }
 
-    private String convertWeatherToJson(Weather weather) {
+    private String convertPOIToJson(POI poi) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Instant.class, new InstantAdapter());
         Gson gson = gsonBuilder.create();
-        return gson.toJson(weather);
+        return gson.toJson(poi);
     }
 
     private void sendMessageToBroker(String jsonData) {
@@ -47,7 +46,7 @@ public class JmsWeatherPublisher implements WeatherPublisher {
     }
 
     private MessageProducer createProducerForTopic(Session session) throws JMSException {
-        Destination destination = session.createTopic("prediction.Weather");
+        Destination destination = session.createTopic("points.Of.Interest");
         return session.createProducer(destination);
     }
 

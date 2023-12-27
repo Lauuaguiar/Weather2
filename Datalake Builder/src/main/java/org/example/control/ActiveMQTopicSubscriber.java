@@ -1,8 +1,9 @@
 package org.example.control;
 
 import jakarta.jms.*;
-
 import org.apache.activemq.ActiveMQConnectionFactory;
+
+import java.util.List;
 
 public class ActiveMQTopicSubscriber implements TopicSubscriber {
     private final String brokerURL;
@@ -15,26 +16,28 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
+
     @Override
-    public void subscribe(String topic, EventStore eventStore) {
+    public void subscribe(List<String> topics, EventStore eventStore) {
         try {
-            MessageConsumer subscriber = createSubscriber(topic);
-            subscriber.setMessageListener(message -> {
-                if (message instanceof TextMessage) {
-                    try {
-                        eventStore.save(((TextMessage) message).getText(), topic);
-                    } catch (JMSException e) {
-                        System.err.println(e.getMessage());
+            for (String topic : topics) {
+                MessageConsumer subscriber = createSubscriber(topic);
+                subscriber.setMessageListener(message -> {
+                    if (message instanceof TextMessage) {
+                        try {
+                            eventStore.save(((TextMessage) message).getText(), topic);
+                        } catch (JMSException e) {
+                            System.err.println(e.getMessage());
+                        }
                     }
-                }
-            });
-            System.out.println("Esperando mensajes. Presiona Ctrl + C para salir.");
+                });
+                System.out.println("Subscribed to topic: " + topic);
+            }
+            System.out.println("Esperando mensajes...");
         } catch (JMSException e) {
             throw new RuntimeException(e);
         }
-
     }
-
 
     private Connection createConnection(String brokerURL) throws JMSException {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
@@ -44,7 +47,7 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         return connection;
     }
 
-    private MessageConsumer createSubscriber(String topic) throws JMSException {
-        return session.createDurableSubscriber(session.createTopic(topic), "EventStoreBuilder" + topic);
+    private MessageConsumer createSubscriber(String topics) throws JMSException {
+        return session.createConsumer(session.createTopic(topics));
     }
 }

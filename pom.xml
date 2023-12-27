@@ -11,6 +11,7 @@
     <modules>
         <module>Prediction Provider</module>
         <module>Datalake Builder</module>
+        <module>Activity Provider</module>
     </modules>
 
     <properties>

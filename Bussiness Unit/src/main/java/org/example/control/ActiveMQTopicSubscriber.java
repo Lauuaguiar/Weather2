@@ -7,13 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActiveMQTopicSubscriber implements TopicSubscriber {
-    private final String brokerURL;
-    private final Connection connection;
     private final Session session;
 
     public ActiveMQTopicSubscriber(String brokerURL) throws JMSException {
-        this.brokerURL = brokerURL;
-        connection = createConnection(brokerURL);
+        Connection connection = createConnection(brokerURL);
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
@@ -32,21 +29,13 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
                     }
                 });
             }
-
-            // Espera por un tiempo razonable para recibir mensajes
-            Thread.sleep(30000); // Ajusta este tiempo según sea necesario
-
+            Thread.sleep(30000);
         } catch (InterruptedException | JMSException e) {
             System.err.println("Error en la suscripción: " + e.getMessage());
         }
 
         return receivedMessages;
     }
-
-    public void close() {
-        // Cerrar conexiones y suscriptores aquí si es necesario
-    }
-
     private Connection createConnection(String brokerURL) throws JMSException {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
         Connection connection = connectionFactory.createConnection();
@@ -54,8 +43,8 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         connection.start();
         return connection;
     }
-
     private MessageConsumer createSubscriber(String topic) throws JMSException {
         return session.createConsumer(session.createTopic(topic));
     }
+
 }

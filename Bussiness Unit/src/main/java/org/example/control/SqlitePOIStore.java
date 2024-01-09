@@ -1,16 +1,14 @@
 package org.example.control;
+
 import org.example.model.Location;
 import org.example.model.POI;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SqlitePOIStore implements POIStore {
+
     static {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -18,34 +16,27 @@ public class SqlitePOIStore implements POIStore {
             e.printStackTrace();
         }
     }
+
     public Connection connect() throws SQLException {
         return DriverManager.getConnection("jdbc:sqlite:POI.db");
     }
-    private boolean tableExist(Connection connection, Location location) throws SQLException {
-        String tableName = location.getCity();
-        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name=?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, tableName);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                return !resultSet.next();
-            }
-        }
+    private String convertCityToTableName(String city) {
+        return city.replaceAll("\\s", "_");
     }
+
     private void createTable(Connection connection, Location location) {
-        try {
-            if (tableExist(connection, location)) {
-                String tableName = location.getCity();
-                String createTableQuery = "CREATE TABLE \"" + tableName + "\" (" +
-                        "\"name\" TEXT, \"kinds\" TEXT, \"lat\" REAL, \"lon\" REAL);";
-                executeStatement(connection, createTableQuery);
-            } else {
-                System.out.println("La tabla ya existe para la ubicación proporcionada.");
-            }
-        } catch (SQLException e) {
-            System.out.println("Error al crear la tabla: " + e.getMessage());
+        if (location == null) {
+            System.out.println("La ubicación en POI no es válida.");
+            return;
         }
+
+        String tableName = convertCityToTableName(location.getCity());
+        String createTableQuery = "CREATE TABLE IF NOT EXISTS \"" + tableName + "\" (" +
+                "\"name\" TEXT, \"kinds\" TEXT, \"lat\" REAL, \"lon\" REAL);";
+        executeStatement(connection, createTableQuery);
     }
+
     public void insertPOI(Connection connection, POI poi, Location location) {
         if (poi == null || location == null) {
             System.out.println("El objeto POI o su ubicación no son válidos.");
@@ -55,14 +46,13 @@ public class SqlitePOIStore implements POIStore {
         try {
             createTable(connection, location);
 
-            String tableName = location.getCity();
+            String tableName = convertCityToTableName(location.getCity());
             String selectQuery = "SELECT * FROM \"" + tableName + "\" WHERE name=?";
             String insertQuery = "INSERT INTO \"" + tableName + "\" (\"name\", \"kinds\", \"lat\", \"lon\") VALUES (?, ?, ?, ?)";
             try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
                 selectStatement.setString(1, poi.getName());
                 try (ResultSet resultSet = selectStatement.executeQuery()) {
                     if (resultSet.next()) {
-                        System.out.println("El POI ya existe en la ubicación proporcionada.");
                         return;
                     }
                 }
@@ -74,12 +64,20 @@ public class SqlitePOIStore implements POIStore {
                 insertStatement.setDouble(4, poi.getLon());
 
                 insertStatement.executeUpdate();
-                System.out.println("Datos de POI insertados correctamente.");
             }
         } catch (SQLException e) {
             System.out.println("Error al interactuar con la base de datos: " + e.getMessage());
         }
     }
+
+    private void executeStatement(Connection connection, String query) {
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar: " + e.getMessage());
+        }
+    }
+
     public void save(POI poi, Location location) {
         try {
             Connection connection = connect();
@@ -89,33 +87,12 @@ public class SqlitePOIStore implements POIStore {
             System.out.println("Error al interactuar con la base de datos: " + e.getMessage());
         }
     }
-    private void executeStatement(Connection connection, String query) {
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.execute();
-            System.out.println("Tabla POI creada correctamente.");
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar: " + e.getMessage());
-        }
-    }
-    private void executeInsert(Connection connection, String query, POI poi) {
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-
-            preparedStatement.setString(1, poi.getName());
-            preparedStatement.setString(2, poi.getKinds());
-            preparedStatement.setDouble(3, poi.getLat());
-            preparedStatement.setDouble(4, poi.getLon());
-
-            preparedStatement.executeUpdate();
-            System.out.println("Datos de POI insertados correctamente.");
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar: " + e.getMessage());
-        }
-    }
 
     public List<POI> getPoisByCity(String city, String ss, Location location) {
         List<POI> pois = new ArrayList<>();
 
         try (Connection connection = connect()) {
+            createTable(connection, location);
             String selectQuery = "SELECT * FROM \"" + city + "\"";
             try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
                 try (ResultSet resultSet = statement.executeQuery()) {

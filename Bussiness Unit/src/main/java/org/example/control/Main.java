@@ -10,7 +10,7 @@ public class Main {
 
         String brokerURL = "tcp://localhost:61616";
         List<String> topics = Arrays.asList("prediction.Weather", "points.Of.Interest");
-        String directoryPath = "C:\\Users\\laura\\Downloads\\WeatherApp Entrega 3\\datalake\\eventstore";
+        String directoryPath = "datalake\\eventstore";
                 Controller controller = new Controller();
                 controller.setTopics(topics);
                 controller.setBrokerURL(brokerURL);

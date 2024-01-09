@@ -1,8 +1,9 @@
 package org.example.control;
+
 import org.example.model.Location;
 import org.example.model.Weather;
+
 import java.sql.*;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,16 +21,20 @@ public class SqliteWeatherStore implements WeatherStore {
         return DriverManager.getConnection("jdbc:sqlite:Weather.db");
     }
 
+    private String convertCityToTableName(String city) {
+        return city.replaceAll("\\s", "_");
+    }
+
     private void createTable(Connection connection, Location location) {
         if (location == null) {
             System.out.println("La ubicación en Weather no es válida.");
             return;
         }
 
-        String tableName = location.getCity();
+        String tableName = convertCityToTableName(location.getCity());
         String createTableQuery = "CREATE TABLE IF NOT EXISTS \"" + tableName + "\" (" +
                 "\"Date\" TEXT, \"Temperature\" REAL, \"Rain\" REAL, \"Humidity\" INTEGER, \"Clouds\" INTEGER, \"Wind\" REAL);";
-        executeStatement(connection, createTableQuery, "Se ha creado la tabla de la isla " + location.getCity());
+        executeStatement(connection, createTableQuery);
     }
 
     public void insertWeather(Connection connection, Weather weather, Location location, String instant) {
@@ -37,37 +42,63 @@ public class SqliteWeatherStore implements WeatherStore {
             System.out.println(instant == null ? "La fecha en Weather no es válida." : "La ubicación en Weather no es válida.");
             return;
         }
-        String tableName = location.getCity();
-        String insertQuery = "INSERT INTO " + tableName + "(Date, Temperature, Rain, Humidity, Clouds, Wind)" +
-                " SELECT ?, ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM " + tableName + " WHERE Date = ?)";
-        try (PreparedStatement selectStatement = connection.prepareStatement("SELECT 1 FROM " + tableName + " WHERE Date = ?")) {
-            selectStatement.setString(1, weather.getPredictionTime());
-            try (ResultSet resultSet = selectStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    System.out.println("Los datos de clima ya existen para la fecha proporcionada y la ubicación.");
-                    return;
+
+        try {
+            createTable(connection, location);
+
+            String tableName = location.getCity();
+            String selectQuery = "SELECT 1 FROM \"" + tableName + "\" WHERE Date=?";
+            String insertQuery = "INSERT INTO \"" + tableName + "\" (\"Date\", \"Temperature\", \"Rain\", \"Humidity\", \"Clouds\", \"Wind\")" +
+                    " SELECT ?, ?, ?, ?, ?, ? WHERE NOT EXISTS (" +
+                    "   SELECT 1 FROM \"" + tableName + "\" WHERE Date = ?" +
+                    ")";
+
+            try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+                selectStatement.setString(1, weather.getPredictionTime());
+                try (ResultSet resultSet = selectStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return;
+                    }
                 }
             }
-        } catch (SQLException e) {
-            System.out.println("Error al comprobar la existencia de datos de clima: " + e.getMessage());
-            return;
-        }
 
-        executeInsertUpdate(connection, insertQuery, weather);
+            try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
+                insertStatement.setString(1, weather.getPredictionTime());
+                insertStatement.setDouble(2, weather.getTemperature());
+                insertStatement.setDouble(3, weather.getPrecipitation());
+                insertStatement.setInt(4, weather.getHumidity());
+                insertStatement.setInt(5, weather.getClouds());
+                insertStatement.setDouble(6, weather.getWind());
+                insertStatement.setString(7, weather.getPredictionTime());
+
+                insertStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al interactuar con la base de datos: " + e.getMessage());
+        }
     }
 
-
-    private void updateWeather(Connection connection, Weather weather, Location location) {
-        if (location == null) {
-            System.out.println("La ubicación en Weather no es válida.");
-            return;
+    private void executeStatement(Connection connection, String query) {
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar: " + e.getMessage());
         }
+    }
 
-        String tableName = location.getCity();
-        String updateQuery = "UPDATE " + tableName +
-                " SET Date = ?, Temperature = ?, Rain = ?, Humidity = ?, Clouds = ?, Wind = ? WHERE Date = ?";
-        executeInsertUpdate(connection, updateQuery, weather);
-        System.out.println("Updated");
+    private void executeInsertUpdate(Connection connection, String query, Weather weather) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, weather.getPredictionTime());
+            preparedStatement.setDouble(2, weather.getTemperature());
+            preparedStatement.setDouble(3, weather.getPrecipitation());
+            preparedStatement.setInt(4, weather.getHumidity());
+            preparedStatement.setInt(5, weather.getClouds());
+            preparedStatement.setDouble(6, weather.getWind());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar la inserción/actualización: " + e.getMessage());
+        }
     }
 
     public void save(Weather weather, Location location, String instant) {
@@ -82,37 +113,23 @@ public class SqliteWeatherStore implements WeatherStore {
         }
     }
 
-    private void executeStatement(Connection connection, String query, String successMessage) {
-        try (Statement statement = connection.createStatement()) {
-            statement.execute(query);
-            System.out.println(successMessage);
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar: " + e.getMessage());
+    private void updateWeather(Connection connection, Weather weather, Location location) {
+        if (location == null) {
+            System.out.println("La ubicación en Weather no es válida.");
+            return;
         }
+
+        String tableName = location.getCity();
+        String updateQuery = "UPDATE \"" + tableName + "\"" +
+                " SET Date = ?, Temperature = ?, Rain = ?, Humidity = ?, Clouds = ?, Wind = ? WHERE Date = ?";
+        executeInsertUpdate(connection, updateQuery, weather);
     }
 
-    private void executeInsertUpdate(Connection connection, String query, Weather weather) {
-
-
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, weather.getPredictionTime());
-            preparedStatement.setDouble(2, weather.getTemperature());
-            preparedStatement.setDouble(3, weather.getPrecipitation());
-            preparedStatement.setInt(4, weather.getHumidity());
-            preparedStatement.setInt(5, weather.getClouds());
-            preparedStatement.setDouble(6, weather.getWind());
-
-            preparedStatement.executeUpdate();
-            System.out.println("Datos insertados correctamente");
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar: " + e.getMessage());
-        }
-    }
-
-    public List<Weather> getWeatherByCity(String city, String ss, String  ts, Location location) {
+    public List<Weather> getWeatherByCity(String city, String ss, String ts, Location location) {
         List<Weather> weatherData = new ArrayList<>();
 
         try (Connection connection = connect()) {
+            createTable(connection, location);
             String selectQuery = "SELECT * FROM \"" + city + "\"";
             try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -133,5 +150,4 @@ public class SqliteWeatherStore implements WeatherStore {
 
         return weatherData;
     }
-
 }

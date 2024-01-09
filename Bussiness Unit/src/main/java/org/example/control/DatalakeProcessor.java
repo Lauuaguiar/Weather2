@@ -1,17 +1,13 @@
 package org.example.control;
 import com.google.gson.Gson;
-
 import org.example.model.POI;
 import org.example.model.Weather;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class DatalakeProcessor {
     public static List<POI> readFilesInFolderForPOI(String folderPath) {
         List<POI> poiList = new ArrayList<>();
@@ -33,7 +29,7 @@ public class DatalakeProcessor {
                 }
             }
         } else {
-            System.out.println("La carpeta está vacía o no existe.");
+            System.out.println("The folder is empty or does not exist.");
         }
         return poiList;
     }
@@ -57,7 +53,7 @@ public class DatalakeProcessor {
                 }
             }
         } else {
-            System.out.println("La carpeta está vacía o no existe.");
+            System.out.println("The folder is empty or does not exist.");
         }
         return weatherList;
     }

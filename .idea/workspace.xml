@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Error correction">
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/DatalakeProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/POIStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqlitePOIStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqliteWeatherStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/TopicSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/UserInteractive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/WeatherStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/POI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/Weather.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/resources/locations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Project completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/OpenTripMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/OpenTripMapSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/model/POI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/model/POI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/DatalakeProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/DatalakeProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/POIStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/POIStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqlitePOIStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqlitePOIStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqliteWeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/TopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/TopicSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/UserInteractive.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/UserInteractive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/WeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/POI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/POI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,23 +57,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "C:/Users/laura/Downloads/WeatherApp Entrega 3/Bussiness Unit/src/main/resources/locations.csv",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/Downloads/WeatherApp Entrega 3&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.control" />
@@ -105,7 +98,7 @@
       <recent name="org.example.control" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main Prediction">
     <configuration name="Main Activity" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="ActivityProvider" />
@@ -450,7 +443,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704291519901</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Error correction">
+      <option name="closed" value="true" />
+      <created>1704836524330</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704836524330</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Project completed">
+      <option name="closed" value="true" />
+      <created>1704980281053</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704980281053</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,10 +503,12 @@
     <MESSAGE value="Reorganization of the Event Store Builder module into new classes and interfaces. Division of these into 'model' and 'control' packages." />
     <MESSAGE value="Final touches and removal of zombie code." />
     <MESSAGE value="Finished" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="Renaming of the 'Event Store Builder' module to 'DataLake Builder'." />
     <MESSAGE value="New 'Activity Provider' module created, new subscription to the 'points.Of.Interest' topic established." />
+    <MESSAGE value="Last commit" />
     <MESSAGE value="Error correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error correction" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="Project completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project completed" />
   </component>
 </project>

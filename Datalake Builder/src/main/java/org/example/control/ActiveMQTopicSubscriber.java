@@ -1,10 +1,7 @@
 package org.example.control;
-
 import jakarta.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
-
 import java.util.List;
-
 public class ActiveMQTopicSubscriber implements TopicSubscriber {
     private final String brokerURL;
     private final Connection connection;
@@ -16,12 +13,11 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-
     @Override
     public void subscribe(List<String> topics, EventStore eventStore) {
         try {
             for (String topic : topics) {
-                MessageConsumer subscriber = createSubscriber(topic);
+                MessageConsumer subscriber = createDurableSubscriber(topic);
                 subscriber.setMessageListener(message -> {
                     if (message instanceof TextMessage) {
                         try {
@@ -38,7 +34,6 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
             throw new RuntimeException(e);
         }
     }
-
     private Connection createConnection(String brokerURL) throws JMSException {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
         Connection connection = connectionFactory.createConnection();
@@ -46,8 +41,8 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         connection.start();
         return connection;
     }
-
-    private MessageConsumer createSubscriber(String topics) throws JMSException {
-        return session.createConsumer(session.createTopic(topics));
+    private MessageConsumer createDurableSubscriber(String topic) throws JMSException {
+        String subscriptionName = "DatalakeBuilderDurable_" + topic; // Utiliza un nombre único basado en el tema
+        return session.createDurableSubscriber(session.createTopic(topic), subscriptionName);
     }
 }

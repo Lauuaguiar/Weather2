@@ -3,13 +3,10 @@ import jakarta.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import java.util.List;
 public class ActiveMQTopicSubscriber implements TopicSubscriber {
-    private final String brokerURL;
-    private final Connection connection;
     private final Session session;
 
     public ActiveMQTopicSubscriber(String brokerURL) throws JMSException {
-        this.brokerURL = brokerURL;
-        connection = createConnection(brokerURL);
+        Connection connection = createConnection(brokerURL);
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
@@ -27,9 +24,8 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
                         }
                     }
                 });
-                System.out.println("Subscribed to topic: " + topic);
             }
-            System.out.println("Esperando mensajes...");
+            System.out.println("Waiting message...");
         } catch (JMSException e) {
             throw new RuntimeException(e);
         }
@@ -42,7 +38,7 @@ public class ActiveMQTopicSubscriber implements TopicSubscriber {
         return connection;
     }
     private MessageConsumer createDurableSubscriber(String topic) throws JMSException {
-        String subscriptionName = "DatalakeBuilderDurable_" + topic; // Utiliza un nombre único basado en el tema
+        String subscriptionName = "DatalakeBuilderDurable_" + topic;
         return session.createDurableSubscriber(session.createTopic(topic), subscriptionName);
     }
 }

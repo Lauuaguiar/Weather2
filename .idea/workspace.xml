@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="981c7d57-8d5e-4b6a-a05f-18338c15c910" name="Changes" comment="Project completed">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/InstantAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/OpenTripMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/OpenTripMapSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/POIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/control/POIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/model/POI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/java/org/example/model/POI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/ActiveMQTopicSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Activity Provider/src/main/resources/locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Activity Provider/src/main/resources/locations.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/SqliteWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/UserInteractive.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/java/org/example/control/UserInteractive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bussiness Unit/src/main/resources/locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Bussiness Unit/src/main/resources/locations.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/FileEventStoreBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/FileEventStoreBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake Builder/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/java/org/example/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction Provider/src/main/resources/locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Prediction Provider/src/main/resources/locations.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,29 +54,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/Downloads/WeatherApp Entrega 3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "C:/Users/laura/Downloads/EuroWeather Explorer/EuroWeather Explorer",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.control" />
       <recent name="org.example.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\laura\Downloads\EuroWeather Explorer\EuroWeather Explorer" />
       <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Activity Provider" />
       <recent name="C:\Users\laura\Downloads\WeatherApp Entrega 2\Prediction Provider\src\main\java" />
     </key>
@@ -95,7 +96,7 @@
       <recent name="org.example.control" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main Activity">
+  <component name="RunManager" selected="Application.Main Datalake">
     <configuration name="Main Activity" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="ActivityProvider" />
@@ -113,7 +114,7 @@
     <configuration name="Main Datalake" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="DatalakeBuilder" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\laura\Downloads\WeatherApp Entrega 3&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\laura\Downloads\EuroWeather Explorer&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.control.*" />
@@ -135,20 +136,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="Bussiness-Unit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.control.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
-      <module name="PredictionProvider" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;Prediction Provider\\src\\main\\resources\\locations.csv&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;$PROJECT_DIR$/&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.control.*" />
@@ -207,11 +195,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main Activity" />
         <item itemvalue="Application.Main Datalake" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main Prediction" />
-        <item itemvalue="Application.Main Prediction" />
       </list>
     </recent_temporary>
   </component>
@@ -464,7 +451,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705070289044</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Project completed">
+      <option name="closed" value="true" />
+      <created>1705074684144</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705074684144</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -491,7 +486,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correction of Weather attributes, WeatherStore poisoning, path to the locations.csv file, and method names." />
     <MESSAGE value="Push to GitHub" />
     <MESSAGE value="Correction of method length." />
     <MESSAGE value="Addition of the dependency 'org.apache.activemq:activemq-client:6.0.0." />
@@ -512,10 +506,11 @@
     <MESSAGE value="New 'Activity Provider' module created, new subscription to the 'points.Of.Interest' topic established." />
     <MESSAGE value="Last commit" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
-    <MESSAGE value="Project completed" />
     <MESSAGE value="Error correction" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Bussiness Unit/src/main/java/org/example/control/ActiveMQTopicSubscriber.java&#10;#&#9;Bussiness Unit/src/main/java/org/example/control/Controller.java&#10;#&#9;Bussiness Unit/src/main/java/org/example/control/SqlitePOIStore.java&#10;#&#9;Bussiness Unit/src/main/java/org/example/control/SqliteWeatherStore.java&#10;#&#9;Bussiness Unit/src/main/java/org/example/control/UserInteractive.java&#10;#&#9;Weather.db&#10;#&#9;datalake/eventstore/points.Of.Interest/activity-provider/20240105.events&#10;#&#9;datalake/eventstore/points.Of.Interest/activity-provider/20240111.events&#10;#&#9;datalake/eventstore/points.Of.Interest/activity-provider/20240112.events" />
     <MESSAGE value="Other error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Other error" />
+    <MESSAGE value="Final delivery" />
+    <MESSAGE value="Project completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project completed" />
   </component>
 </project>

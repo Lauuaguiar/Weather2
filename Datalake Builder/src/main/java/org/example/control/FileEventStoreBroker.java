@@ -12,38 +12,39 @@ import java.util.Date;
 
 public class FileEventStoreBroker implements EventStore {
 
-    private final File baseDirectory;
+    private final String rootPath;
 
-    public FileEventStoreBroker(File baseDirectory) {
-        this.baseDirectory = baseDirectory;
+    public FileEventStoreBroker(String rootPath) {
+        this.rootPath = rootPath;
     }
 
     public void save(String event, String... topics) {
         try {
             JsonObject eventJson = JsonParser.parseString(event).getAsJsonObject();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-            String currentDate = dateFormat.format(new Date());
+            String ts = dateFormat.format(new Date());
 
             for (String topic : topics) {
-                File eventFile = new File(createDirectory(topic, eventJson.get("ss").getAsString()), currentDate + ".events");
+                File eventFile = new File(createDirectory(topic, eventJson.get("ss").getAsString()), ts + ".events");
                 writeEventToFile(eventFile, event);
             }
         } catch (Exception e) {
-            System.err.println("Error al procesar el evento: " + e.getMessage());
+            System.err.println("Error processing the event: " + e.getMessage());
         }
     }
-    private void writeEventToFile(File eventFile, String eventData) {
+    private void writeEventToFile(File eventFile, String events) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(eventFile, true))) {
-            writer.write(eventData + "\n");
+            writer.write(events + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     private File createDirectory(String topic, String ss) {
-        String directoryPath = "datalake/eventstore/" + topic + "/" + ss;
+        String directoryPath = rootPath + "\\datalake\\eventstore\\" + topic + "\\" + ss;
         File directory = new File(directoryPath);
         if (!directory.exists()) directory.mkdirs();
         return directory;
     }
+
 }
 

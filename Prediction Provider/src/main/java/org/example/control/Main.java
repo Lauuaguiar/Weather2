@@ -16,7 +16,7 @@ public class Main {
                 @Override
                 public void run() {
                     try {
-                        weatherController.weather(locations);
+                        weatherController.processWeatherFile(locations);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

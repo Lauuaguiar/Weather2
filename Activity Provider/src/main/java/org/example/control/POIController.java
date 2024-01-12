@@ -22,7 +22,7 @@ public class POIController {
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
             reader.lines().forEach(line -> parseCSVLine(line, locations));
         } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo CSV: " + e.getMessage(), e);
+            throw new RuntimeException("Error reading the CSV file: " + e.getMessage(), e);
         }
         return locations;
     }
@@ -34,7 +34,7 @@ public class POIController {
             double lon = Double.parseDouble(parts[1]);
             locations.add(new Location(lat, lon, parts[2].trim()));
         } catch (NumberFormatException e) {
-            System.err.println("Error al convertir valores en el archivo CSV: " + e.getMessage());
+            System.err.println("Error converting values in the CSV file: " + e.getMessage());
         }
     }
 
@@ -49,13 +49,13 @@ public class POIController {
         });
     }
 
-    public void POI(String csvFile) {
+    public void processPOIFile(String csvFile) {
         try {
             List<Location> listLocation = readCSV(csvFile);
             processPOI(listLocation);
             System.out.println("The task is finished");
         } catch (RuntimeException e) {
-            throw new RuntimeException("Error al procesar datos: " + e.getMessage(), e);
+            throw new RuntimeException("Error processing data: " + e.getMessage(), e);
         }
     }
 }

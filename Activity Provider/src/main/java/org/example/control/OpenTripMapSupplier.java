@@ -80,6 +80,4 @@ public class OpenTripMapSupplier implements POISupplier {
         }
         return poiList;
     }
-
-
 }

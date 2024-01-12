@@ -1,4 +1,5 @@
 package org.example.control;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,7 +16,7 @@ public class Main {
                 @Override
                 public void run() {
                     try {
-                        poiController.POI(locations);
+                        poiController.processPOIFile(locations);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

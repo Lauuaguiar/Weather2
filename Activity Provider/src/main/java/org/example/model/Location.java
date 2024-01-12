@@ -20,9 +20,6 @@ public class Location {
         return lon;
     }
 
-    public String getCity() {
-        return city;
-    }
 
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-<h1 align="center"> Implementation of the Publisher/Subscriber Pattern </h1>
+# Integration of OpenTripMap and OpenWeatherMap
 
 ![WEATHER](https://github.com/Lauuaguiar/Lauuaguiar/assets/145450311/d148d92b-20cf-4795-a381-27cf448cacf9)
 
@@ -53,12 +53,12 @@ The video demonstrates retrieving the ApiKey and accessing the class that utiliz
 
 ## Class Diagram and Design
 
-<h2 align="center"> Class diagram of the EventStoreBuilder module.</h2>
+## Class diagram of the EventStoreBuilder module.
 
 ![EventStoreBuilder](https://github.com/Lauuaguiar/Weather2/assets/145450311/2ea95e5f-d26f-400a-8f0c-4e1d47de3a42)
 
 
-<h2 align="center"> Class diagram of the PredictionProvider module.</h2>
+## Class diagram of the PredictionProvider module.
 
 ![PredictionProvider](https://github.com/Lauuaguiar/Weather2/assets/145450311/fd537890-1168-476b-9775-554efc193f6b)
 
@@ -85,6 +85,4 @@ To compile and execute the project modules, make sure to have these dependencies
 
 ## Contact
 For questions or more information, contact Laura Aguiar Pérez via laura.aguiar101@alu.ulpgc.es
-```
 
-This revised text translates the provided content into formal English for a README file.

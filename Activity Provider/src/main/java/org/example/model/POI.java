@@ -3,11 +3,11 @@ package org.example.model;
 
 public class POI {
     private final String ss;
-    private String name;
-    private String kinds;
-    private double lat;
-    private double lon;
-    private Location location;
+    private final String name;
+    private final String kinds;
+    private final double lat;
+    private final double lon;
+    private final Location location;
 
     public POI(String ss, String name, String kinds, double lat, double lon, Location location) {
         this.ss = ss;
@@ -29,4 +29,5 @@ public class POI {
                 ", longitude=" + lon +
                 '}';
     }
+
 }

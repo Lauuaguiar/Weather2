@@ -4,6 +4,7 @@ import org.example.model.Location;
 import org.example.model.Weather;
 
 import java.sql.*;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 

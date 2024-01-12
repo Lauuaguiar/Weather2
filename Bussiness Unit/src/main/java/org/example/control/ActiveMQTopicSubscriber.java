@@ -5,9 +5,12 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import java.util.ArrayList;
 import java.util.List;
 public class ActiveMQTopicSubscriber implements TopicSubscriber {
+    private final String brokerURL;
+    private final Connection connection;
     private final Session session;
     public ActiveMQTopicSubscriber(String brokerURL) throws JMSException {
-        Connection connection = createConnection(brokerURL);
+        this.brokerURL = brokerURL;
+        connection = createConnection(brokerURL);
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
     public List<Message> subscribe(List<String> topics) {

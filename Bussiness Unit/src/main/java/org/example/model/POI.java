@@ -1,6 +1,4 @@
 package org.example.model;
-
-
 public class POI {
     private String ss;
     private String name;
@@ -8,7 +6,6 @@ public class POI {
     private double lat;
     private double lon;
     private Location location;
-
     public POI(String ss, String name, String kinds, double lat, double lon, Location location) {
         this.ss = ss;
         this.name = name;
@@ -17,15 +14,12 @@ public class POI {
         this.lon = lon;
         this.location = location;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getKinds() {
         return kinds;
     }
@@ -37,27 +31,21 @@ public class POI {
     public double getLat() {
         return lat;
     }
-
     public void setLat(double lat) {
         this.lat = lat;
     }
-
     public double getLon() {
         return lon;
     }
-
     public void setLon(double lon) {
         this.lon = lon;
     }
-
     public Location getLocation() {
         return location;
     }
-
     public void setLocation(Location location) {
         this.location = location;
     }
-
     @Override
     public String toString() {
         return "POI{" +
@@ -68,7 +56,6 @@ public class POI {
                 ", location=" + location +
                 '}';
     }
-
     public String getSs() {
         return ss;
     }

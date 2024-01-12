@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws JMSException {
         String brokerURL = "tcp://localhost:61616";
         List<String> topics = Arrays.asList("prediction.Weather", "points.Of.Interest");
-        String directoryPath = "datalake\\eventstore";
+        String directoryPath = args[0] + "\\datalake\\eventstore";
                 Controller controller = new Controller();
                 controller.setTopics(topics);
                 controller.setBrokerURL(brokerURL);

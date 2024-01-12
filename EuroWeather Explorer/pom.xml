@@ -5,17 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>WeatherApp</artifactId>
+        <artifactId>EuroWeatherExplorer</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Bussiness-Unit</artifactId>
+    <artifactId>Business-Unit</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.jsoup</groupId>
@@ -43,8 +44,5 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.41.2.2</version>
         </dependency>
-
     </dependencies>
-
-
 </project>

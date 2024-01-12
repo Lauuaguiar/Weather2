@@ -10,11 +10,11 @@ import java.util.List;
 
 public class WeatherController {
     private final OpenWeatherMapSupplier openWeatherMapSupplier;
-    private final JmsWeatherPublisher JmsWeatherPublisher;
+    private final JmsWeatherPublisher jmsWeatherPublisher;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, JmsWeatherPublisher JmsWeatherPublisher) {
+    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, JmsWeatherPublisher jmsWeatherPublisher) {
         this.openWeatherMapSupplier = openWeatherMapSupplier;
-        this.JmsWeatherPublisher = JmsWeatherPublisher;
+        this.jmsWeatherPublisher = jmsWeatherPublisher;
     }
 
     private List<Location> readCSV(String csvFilePath) {
@@ -22,7 +22,7 @@ public class WeatherController {
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
             reader.lines().forEach(line -> parseCSVLine(line, locations));
         } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo CSV: " + e.getMessage(), e);
+            throw new RuntimeException("Error reading the CSV file: " + e.getMessage(), e);
         }
         return locations;
     }
@@ -34,7 +34,7 @@ public class WeatherController {
             double lon = Double.parseDouble(parts[1]);
             locations.add(new Location(lat, lon, parts[2].trim()));
         } catch (NumberFormatException e) {
-            System.err.println("Error al convertir valores en el archivo CSV: " + e.getMessage());
+            System.err.println("Error converting values in the CSV file: " + e.getMessage());
         }
     }
 
@@ -42,20 +42,20 @@ public class WeatherController {
         listLocation.forEach(location -> {
             try {
                 openWeatherMapSupplier.getWeather(location)
-                        .forEach(JmsWeatherPublisher::publishWeather);
+                        .forEach(jmsWeatherPublisher::publishWeather);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
 
-    public void weather(String csvFile) {
+    public void processWeatherFile(String csvFile) {
         try {
             List<Location> listLocation = readCSV(csvFile);
             processWeather(listLocation);
             System.out.println("The task is finished");
         } catch (RuntimeException e) {
-            throw new RuntimeException("Error al procesar datos meteorológicos: " + e.getMessage(), e);
+            throw new RuntimeException("Error processing weather data: " + e.getMessage(), e);
         }
     }
 }

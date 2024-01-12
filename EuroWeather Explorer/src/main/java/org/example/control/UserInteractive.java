@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class UserInteractive {
     private final SqlitePOIStore poiStore;
     private final SqliteWeatherStore weatherStore;
-    private static final String CSV_FILE_PATH = "Bussiness Unit\\src\\main\\resources\\locations.csv";
+    private static final String CSV_FILE_PATH = "EuroWeather Explorer\\src\\main\\resources\\locations.csv";
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private final List<Location> locations;
     public UserInteractive(SqlitePOIStore poiStore, SqliteWeatherStore weatherStore) {

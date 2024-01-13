@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             String locations = "Activity Provider\\src\\main\\resources\\locations.csv";
-         POIController poiController = new POIController(new OpenTripMapSupplier(args[0]), new JmsPOIPublisher());
+            POIController poiController = new POIController(new OpenTripMapSupplier(args[0]), new JmsPOIPublisher());
 
             Timer timer = new Timer();
             long period = 6 * 60 * 60 * 1000;

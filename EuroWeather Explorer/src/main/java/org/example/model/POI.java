@@ -1,11 +1,11 @@
 package org.example.model;
 public class POI {
-    private String ss;
-    private String name;
-    private String kinds;
-    private double lat;
-    private double lon;
-    private Location location;
+    private final String ss;
+    private final String name;
+    private final String kinds;
+    private final double lat;
+    private final double lon;
+    private final Location location;
     public POI(String ss, String name, String kinds, double lat, double lon, Location location) {
         this.ss = ss;
         this.name = name;
@@ -17,34 +17,17 @@ public class POI {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
     public String getKinds() {
         return kinds;
     }
-
-    public void setKinds(String kinds) {
-        this.kinds = kinds;
-    }
-
     public double getLat() {
         return lat;
-    }
-    public void setLat(double lat) {
-        this.lat = lat;
     }
     public double getLon() {
         return lon;
     }
-    public void setLon(double lon) {
-        this.lon = lon;
-    }
     public Location getLocation() {
         return location;
-    }
-    public void setLocation(Location location) {
-        this.location = location;
     }
     @Override
     public String toString() {
@@ -55,8 +38,5 @@ public class POI {
                 ", lon=" + lon +
                 ", location=" + location +
                 '}';
-    }
-    public String getSs() {
-        return ss;
     }
 }

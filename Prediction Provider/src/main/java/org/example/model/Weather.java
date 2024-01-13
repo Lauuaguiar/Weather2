@@ -29,4 +29,6 @@ public class Weather {
         this.clouds = clouds;
         this.location = location;
     }
+
+
 }

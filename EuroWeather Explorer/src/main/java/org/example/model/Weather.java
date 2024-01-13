@@ -1,14 +1,14 @@
 package org.example.model;
 public class Weather {
-    private String ts;
-    private String ss;
-    private String predictionTime;
-    private double temperature;
-    private double precipitation;
-    private double wind;
-    private int humidity;
-    private int clouds;
-    private Location location;
+    private final String ts;
+    private final String ss;
+    private final String predictionTime;
+    private final double temperature;
+    private final double precipitation;
+    private final double wind;
+    private final int humidity;
+    private final int clouds;
+    private final Location location;
     public Weather(String ts, String ss, String predictionTime, double temperature, double precipitation, double wind, int humidity, int clouds, Location location) {
         this.ts = ts;
         this.ss = ss;
@@ -55,8 +55,5 @@ public class Weather {
     }
     public String getTs() {
         return ts;
-    }
-    public String getSs() {
-        return ss;
     }
 }

@@ -29,5 +29,4 @@ public class POI {
                 ", longitude=" + lon +
                 '}';
     }
-
 }

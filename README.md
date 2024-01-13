@@ -1,10 +1,5 @@
-# Integration of OpenTripMap and OpenWeatherMap
-
-![WEATHER](https://github.com/Lauuaguiar/Lauuaguiar/assets/145450311/d148d92b-20cf-4795-a381-27cf448cacf9)
-
-<p align="left">
-   <img src="https://img.shields.io/badge/STATUS-PROJECT%20COMPLETED-green">
-</p>
+# EuroWeather Explorer
+![68095bd8-cd06-4f5a-b66b-0d9c27408a07_upscaled (1)](https://github.com/Lauuaguiar/Weather2/assets/145450311/4b431967-b1c9-47ef-8883-74efe00111a5)
 
 ## General Information
 - **Subject:** Data Science Application Development
@@ -12,69 +7,75 @@
 - **School:** School of Computer Engineering
 - **University:** Universidad de Las Palmas de Gran Canaria
 
-## Functionality Overview
-This project involves two modules: the Prediction Provider, which retrieves weather data and sends it to the Apache ActiveMQ broker's topic; and the Event Store Builder, which stores these events in a structured manner in the 'eventstore' directory, organizing them by date.
+## Name and Description:
 
-## Installation and Usage
-1. **Apache ActiveMQ Installation:**
-   - Follow the instructions in the [ActiveMQ Getting Started](https://activemq.apache.org/getting-started) tutorial to download and install the broker.
-   - By default, the broker accepts connections on port 61616.
+I have named this application "EuroWeather Explorer." Its primary purpose is to enable tourists in European capitals to inquire about points of interest located within a kilometer of the city center. Additionally, it provides details about the weather in that area, both for the current day and the upcoming days.
 
-2. **Project Configuration:**
-   - Clone this repository.
+From a technical perspective, the functionality of the application is broken down into four modules. Initially, we have the Prediction Provider module and the Activity Provider module, responsible for gathering the necessary information and uploading it to the designated broker. Subsequently, the Datalake Builder module subscribes to the broker's topics, extracts the information, and stores it in a folder named "datalake," located in the user-specified path. Finally, the EuroWeather Business-Unit module manages the user interface and datamart.
 
-3. **Project Execution:**
-   - Open the project in IntelliJ.
-   - Adding our API Key to the 'args[0]' variable is necessary. How can this be done? Check out the tutorial below:
+## Installation:
 
-[Tutorial Video](https://github.com/Lauuaguiar/Lauuaguiar/assets/145450311/898aeb83-8f7e-414b-8c7e-fa9cee9218fb)
+1. Follow the detailed instructions in the [ActiveMQ Getting Started](https://activemq.apache.org/getting-started) guide to download and install the broker.
+2. Download the zip file of this project and open it in IntelliJ IDEA.
 
-The video demonstrates retrieving the ApiKey and accessing the class that utilizes it.
-   - First, execute the Event Store Builder module. It will wait for the 'prediction.Weather' topic to receive messages, which will happen when the PredictionProvider module is executed. When both are executed simultaneously, but in this order, the console will display messages informing about the code's actions.
+## System Requirements:
 
-## Project Structure
+Ensure that the resources folder of the Business-Unit, PredictionProvider, and ActivityProvider modules contains a file named "locations.csv," which includes all European capitals along with their respective coordinates.
 
-- **Prediction Provider:**
-  - Retrieves weather data from specific locations at a given frequency.
-  - Generates JSON format events from this weather data.
-  - The event structure includes information such as the prediction timestamp, the data source, the prediction timestamp, and the location with its coordinates.
-  - Additionally, it includes metrics such as temperature in degrees Celsius and wind speed in m/s, adjusted according to the request to the OpenWeatherMap API.
-  - Sends these events to the 'prediction.Weather' topic of the broker.
+## Configuration:
 
-- **Broker (Apache ActiveMQ):**
-  - Acts as an intermediary for communication between the Prediction Provider and the Event Store Builder.
-  - Allows publication and subscription to specific topics, in this case, 'prediction.Weather'.
+To ensure the proper functioning of the application, it is necessary to add the required arguments for each module:
+- In PredictionProvider, input your OpenWeatherMap APIKey.
+- In ActivityProvider, input your OpenTripMap APIKey.
+- In DatalakeBuilder and Business-Unit, specify the path where you want to save the "datalake" folder.
 
-- **Event Store Builder:**
-  - This module subscribes to the 'prediction.Weather' topic of the broker.
-  - Stores consumed events from the broker in an ordered temporal manner.
-  - Serializes events in the eventstore following a specific directory structure: eventstore/prediction.Weather/{ss}/{YYYYMMDD}.events.
-  - Where 'YYYYMMDD' corresponds to the year, month, and day obtained from the event's timestamp. The '.events' is the file extension where the events associated with a specific day are stored.
+Refer to this [video tutorial]() for a detailed guide on adding these arguments.
+
+## Usage:
+
+1. Run the Main Datalake to wait for messages from the topics.
+2. Subsequently, run the Main Activity and the Main Prediction in any order.
+3. When both Main modules indicate they have finished, stop all three Main modules to create the "datalake" folder. Note that the Main Activity may take slightly longer to complete.
+4. Finally, run the Main Business. At this point, you can choose to rerun the Main Activity and the Main Prediction to obtain information directly from the topics or let the module detect the absence of messages (which may take about 40 seconds) and retrieve information from the "datalake." Once this process is complete, the user interface will start functioning, and questions will appear in the console.
+
+## Examples:
+
+Provide practical examples of common use cases.
+
+## Documentation:
+
+This project utilizes the OpenWeatherMap APIs (for weather data) and OpenTripMap APIs (for points of interest).
 
 ## Class Diagram and Design
 
-## Class diagram of the EventStoreBuilder module.
+## Class diagram of the DatalakeBuilder module.
 
-![EventStoreBuilder](https://github.com/Lauuaguiar/Weather2/assets/145450311/2ea95e5f-d26f-400a-8f0c-4e1d47de3a42)
-
+## Class diagram of the ActivityProvider module.
 
 ## Class diagram of the PredictionProvider module.
 
-![PredictionProvider](https://github.com/Lauuaguiar/Weather2/assets/145450311/fd537890-1168-476b-9775-554efc193f6b)
-
+## Class diagram of the Business-Unit module.
 
 
 ## Project Dependencies
-- **jsoup - Version 1.16.2:**
-  - Library for parsing HTML and working with web data.
 
-- **gson - Version 2.10.1:**
-  - Library for serializing and deserializing Java objects to JSON and vice versa.
+### jsoup - Version 1.16.2
+- Description: Library for parsing HTML and working with web data.
 
-- **activemq-client - Version 6.0.0:**
-  - Apache ActiveMQ client for communication with the message broker.
+### gson - Version 2.10.1
+- Description: Library for serializing and deserializing Java objects to JSON and vice versa.
+
+### activemq-client - Version 6.0.0
+- Description: Apache ActiveMQ client for communication with the message broker.
+
+### jakarta.jms-api - Version 3.1.0 (Compile Scope)
+- Description: Jakarta Messaging API for Java Message Service.
+
+### sqlite-jdbc - Version 3.41.2.2
+- Description: SQLite JDBC driver for database connectivity.
 
 ## Dependencies and Compilation
+
 To compile and execute the project modules, make sure to have these dependencies installed. You can add these dependencies to the project's pom.xml file to manage them automatically with Maven or any other dependency management tool.
 
 ## Versioning and Delivery
@@ -85,4 +86,3 @@ To compile and execute the project modules, make sure to have these dependencies
 
 ## Contact
 For questions or more information, contact Laura Aguiar Pérez via laura.aguiar101@alu.ulpgc.es
-

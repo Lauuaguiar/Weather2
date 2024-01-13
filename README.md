@@ -1,4 +1,4 @@
-![Captura de pantalla 2024-01-13 154527](https://github.com/Lauuaguiar/Weather2/assets/145450311/3c2c3b83-7f44-4c6c-9f1b-0bffe357be39)# EuroWeather Explorer
+# EuroWeather Explorer
 ![68095bd8-cd06-4f5a-b66b-0d9c27408a07_upscaled (1)](https://github.com/Lauuaguiar/Weather2/assets/145450311/4b431967-b1c9-47ef-8883-74efe00111a5)
 
 ## General Information

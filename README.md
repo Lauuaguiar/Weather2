@@ -1,4 +1,4 @@
-# EuroWeather Explorer
+![Captura de pantalla 2024-01-13 154527](https://github.com/Lauuaguiar/Weather2/assets/145450311/3c2c3b83-7f44-4c6c-9f1b-0bffe357be39)# EuroWeather Explorer
 ![68095bd8-cd06-4f5a-b66b-0d9c27408a07_upscaled (1)](https://github.com/Lauuaguiar/Weather2/assets/145450311/4b431967-b1c9-47ef-8883-74efe00111a5)
 
 ## General Information
@@ -49,10 +49,16 @@ This project utilizes the OpenWeatherMap APIs (for weather data) and OpenTripMap
 ## Class Diagram and Design
 
 ## Class diagram of the DatalakeBuilder module.
+![Captura de pantalla 2023-12-06 214959](https://github.com/Lauuaguiar/Weather2/assets/145450311/db9a6925-0879-4457-83d9-f2c85f055859)
+
 
 ## Class diagram of the ActivityProvider module.
+![Captura de pantalla 2024-01-13 154527](https://github.com/Lauuaguiar/Weather2/assets/145450311/ccd941a7-6130-4a3f-b846-385018805a1c)
+
 
 ## Class diagram of the PredictionProvider module.
+![Captura de pantalla 2023-12-06 222131](https://github.com/Lauuaguiar/Weather2/assets/145450311/e26dd6bf-5d43-4ea0-8331-952d9261a0bc)
+
 
 ## Class diagram of the Business-Unit module.
 

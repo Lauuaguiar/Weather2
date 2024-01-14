@@ -61,6 +61,8 @@ This project utilizes the OpenWeatherMap APIs (for weather data) and OpenTripMap
 
 
 ## Class diagram of the Business-Unit module.
+![Captura de pantalla 2024-01-14 123900](https://github.com/Lauuaguiar/Weather2/assets/145450311/5f2b6fa5-fb5f-43c2-9164-e808dd81391d)
+
 
 
 ## Project Dependencies

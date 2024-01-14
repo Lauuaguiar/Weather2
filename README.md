@@ -29,7 +29,8 @@ To ensure the proper functioning of the application, it is necessary to add the 
 - In ActivityProvider, input your OpenTripMap APIKey.
 - In DatalakeBuilder and Business-Unit, specify the path where you want to save the "datalake" folder.
 
-Refer to this [video tutorial]() for a detailed guide on adding these arguments.
+Refer to this [video tutorial](https://github.com/Lauuaguiar/Weather2/assets/145450311/a791c61b-3956-47f0-b279-0f371c9239cf) for a detailed guide on adding these arguments.
+
 
 ## Usage:
 
